@@ -1,0 +1,11 @@
+#manage network interface
+export manage_network_interface=eth1
+
+#VM network interface
+export vm_interface=eth0
+
+#manage ip
+export manage_ip=172.16.0.1
+
+#compute ip
+export compute_ip=172.16.0.11,172.16.0.12
