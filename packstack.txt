@@ -1,4 +1,5 @@
 #!/bin/bash 
+. rdo.rc
 
 cat > packstack_now.txt <<EOF
 [general]
