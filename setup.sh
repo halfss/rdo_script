@@ -28,9 +28,6 @@ echo '' > /etc/sysconfig/iptables
 #add company mirrors
 rpm -Uvh http://mirrors.halfss.com/halfss-mirrors-0.01-1.noarch.rpm
 
-#add mirrors
-sudo yum install -y http://rdo.fedorapeople.org/rdo-release.rpm
-
 #generate packstack config
 bash packstack.txt
 cp packstack_now.txt  ~/packstack.txt

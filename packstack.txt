@@ -43,7 +43,7 @@ CONFIG_CEILOMETER_INSTALL=y
 
 # Set to 'y' if you would like Packstack to install OpenStack
 # Orchestration (Heat)
-CONFIG_HEAT_INSTALL=n
+CONFIG_HEAT_INSTALL=y
 
 # Set to 'y' if you would like Packstack to install the OpenStack
 # Client packages. An admin "rc" file will also be installed
@@ -51,11 +51,11 @@ CONFIG_CLIENT_INSTALL=y
 
 # Comma separated list of NTP servers. Leave plain if Packstack
 # should not install ntpd on instances.
-CONFIG_NTP_SERVERS=
+CONFIG_NTP_SERVERS=0.au.pool.ntp.org,1.au.pool.ntp.org,2.au.pool.ntp.org,3.au.pool.ntp.org
 
 # Set to 'y' if you would like Packstack to install Nagios to monitor
 # OpenStack hosts
-CONFIG_NAGIOS_INSTALL=y
+CONFIG_NAGIOS_INSTALL=n
 
 # Comma separated list of servers to be excluded from installation in
 # case you are running Packstack the second time with the same answer
@@ -114,7 +114,7 @@ CONFIG_KEYSTONE_DB_PW=ab1c6f094c9249f0
 CONFIG_KEYSTONE_ADMIN_TOKEN=0bf6db2d2d4746bd9576bab706aae4fb
 
 # The password to use for the Keystone admin user
-CONFIG_KEYSTONE_ADMIN_PW=78f3fe59efff4bed
+CONFIG_KEYSTONE_ADMIN_PW=password
 
 # The password to use for the Keystone demo user
 CONFIG_KEYSTONE_DEMO_PW=948886cb76a54388
@@ -233,7 +233,7 @@ CONFIG_NOVA_NETWORK_VLAN_START=100
 CONFIG_NOVA_NETWORK_NUMBER=1
 
 # Number of addresses in each private subnet
-CONFIG_NOVA_NETWORK_SIZE=255
+CONFIG_NOVA_NETWORK_SIZE=610
 
 # The IP addresses of the server on which to install the Neutron
 # server
@@ -283,24 +283,24 @@ CONFIG_NEUTRON_LB_VLAN_RANGES=
 # A comma separated list of interface mappings for the Neutron
 # linuxbridge plugin (eg. physnet1:br-eth1,physnet2:br-eth2,physnet3
 # :br-eth3)
-CONFIG_NEUTRON_LB_INTERFACE_MAPPINGS=
+CONFIG_NEUTRON_LB_INTERFACE_MAPPINGS=physnet1:br-$vm_manage
 
 # Type of network to allocate for tenant networks (eg. vlan, local,
 # gre)
-CONFIG_NEUTRON_OVS_TENANT_NETWORK_TYPE=local
+CONFIG_NEUTRON_OVS_TENANT_NETWORK_TYPE=vlan
 
 # A comma separated list of VLAN ranges for the Neutron openvswitch
 # plugin (eg. physnet1:1:4094,physnet2,physnet3:3000:3999)
-CONFIG_NEUTRON_OVS_VLAN_RANGES=
+CONFIG_NEUTRON_OVS_VLAN_RANGES=physnet1:10:20
 
 # A comma separated list of bridge mappings for the Neutron
 # openvswitch plugin (eg. physnet1:br-eth1,physnet2:br-eth2,physnet3
 # :br-eth3)
-CONFIG_NEUTRON_OVS_BRIDGE_MAPPINGS=
+CONFIG_NEUTRON_OVS_BRIDGE_MAPPINGS=physnet1:br-$vm_interface
 
 # A comma separated list of colon-separated OVS bridge:interface
 # pairs. The interface will be added to the associated bridge.
-CONFIG_NEUTRON_OVS_BRIDGE_IFACES=
+CONFIG_NEUTRON_OVS_BRIDGE_IFACES=br-$vm_interface:$vm_interface
 
 # A comma separated list of tunnel ranges for the Neutron openvswitch
 # plugin
@@ -361,7 +361,7 @@ CONFIG_SWIFT_HASH=1eb62c10695d4fff
 CONFIG_SWIFT_STORAGE_SIZE=2G
 
 # Whether to provision for demo usage and testing
-CONFIG_PROVISION_DEMO=y
+CONFIG_PROVISION_DEMO=n
 
 # The CIDR network address for the floating IP subnet
 CONFIG_PROVISION_DEMO_FLOATRANGE=172.24.4.224/28
@@ -377,7 +377,7 @@ CONFIG_PROVISION_TEMPEST_REPO_REVISION=master
 
 # Whether to configure the ovs external bridge in an all-in-one
 # deployment
-CONFIG_PROVISION_ALL_IN_ONE_OVS_BRIDGE=y
+CONFIG_PROVISION_ALL_IN_ONE_OVS_BRIDGE=n
 
 # The IP address of the server on which to install Heat service
 CONFIG_HEAT_HOST=$manage_ip
@@ -390,11 +390,11 @@ CONFIG_HEAT_KS_PW=8e5a37b840894953
 
 # Set to 'y' if you would like Packstack to install Heat CloudWatch
 # API
-CONFIG_HEAT_CLOUDWATCH_INSTALL=n
+CONFIG_HEAT_CLOUDWATCH_INSTALL=y
 
 # Set to 'y' if you would like Packstack to install Heat
 # CloudFormation API
-CONFIG_HEAT_CFN_INSTALL=n
+CONFIG_HEAT_CFN_INSTALL=y
 
 # The IP address of the server on which to install Heat CloudWatch
 # API service
@@ -420,11 +420,11 @@ CONFIG_NAGIOS_HOST=$manage_ip
 CONFIG_NAGIOS_PW=0379ee4c60f3443d
 
 # To subscribe each server to EPEL enter "y"
-CONFIG_USE_EPEL=y
+CONFIG_USE_EPEL=n
 
 # A comma separated list of URLs to any additional yum repositories
 # to install
-CONFIG_REPO=
+CONFIG_REPO=http://mirrors.halfss.com/6/x86_64/
 
 # To subscribe each server with Red Hat subscription manager, include
 # this with CONFIG_RH_PW
