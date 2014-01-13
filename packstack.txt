@@ -51,7 +51,7 @@ CONFIG_CLIENT_INSTALL=y
 
 # Comma separated list of NTP servers. Leave plain if Packstack
 # should not install ntpd on instances.
-CONFIG_NTP_SERVERS=0.au.pool.ntp.org,1.au.pool.ntp.org,2.au.pool.ntp.org,3.au.pool.ntp.org
+CONFIG_NTP_SERVERS=
 
 # Set to 'y' if you would like Packstack to install Nagios to monitor
 # OpenStack hosts
