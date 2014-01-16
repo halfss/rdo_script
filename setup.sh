@@ -5,6 +5,8 @@ if [ `whoami` != 'root' ];then
     exit 0
 fi
 
+cd `dirname $0`
+
 . rdo.rc
 
 #set ssh key
@@ -39,3 +41,5 @@ sudo yum install -y openstack-packstack
 packstack --answer-file=~/packstack.txt
 
 #finished install
+
+cd -
