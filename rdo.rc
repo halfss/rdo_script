@@ -1,11 +1,22 @@
 #manage network interface
-export manage_network_interface=eth1
+export manage_network_interface=eth0
 
 #VM network interface
-export vm_interface=eth0
+export vm_interface=eth1
 
 #manage ip
 export manage_ip=172.16.0.1
 
 #compute ip
 export compute_ip=172.16.0.11,172.16.0.12
+
+#use_epel
+export CONFIG_USE_EPEL=n
+
+#external repo
+#set this if do not use EPEL
+CONFIG_REPO=http://mirrors.halfss.com/6/x86_64/
+
+#external repo ip
+#set this if compute node could not reslove the repo domain
+EXTER_REPO_IP=192.168.176.57

@@ -420,11 +420,11 @@ CONFIG_NAGIOS_HOST=$manage_ip
 CONFIG_NAGIOS_PW=0379ee4c60f3443d
 
 # To subscribe each server to EPEL enter "y"
-CONFIG_USE_EPEL=n
+CONFIG_USE_EPEL=$CONFIG_USE_EPEL
 
 # A comma separated list of URLs to any additional yum repositories
 # to install
-CONFIG_REPO=http://mirrors.halfss.com/6/x86_64/
+CONFIG_REPO=$CONFIG_REPO
 
 # To subscribe each server with Red Hat subscription manager, include
 # this with CONFIG_RH_PW
